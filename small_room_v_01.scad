@@ -57,7 +57,10 @@ color("lightsalmon", 1)
 shelf_thick = 18;
 shelf_width_S = 225;
 shelf_width_L = 450;
-
+// module for draw one shelf
+// arg
+// > size=shelf_width_S or shelf_width_L (width 22.5cm or 45cm)
+// > length (length of this shelf)
 module shelf_draw(size=shelf_width_S, length)
 {
     color("lightyellow", 1)
@@ -107,7 +110,7 @@ color("white", 1)
     rotate([0, 0, 0])
     translate([65, 60, 0])
     cylinder(r=20, h=2500, center=false);
-// !!! draw horizontal tube !!! 22 33
+// !!! draw horizontal tube !!! h = [22, 33]cm
     for(dZ=[220, 330])
     {
         translate([65, 60, dZ])
@@ -210,11 +213,12 @@ for(i=[dX_bad_L, dX_bad_R])
 	for(length=[[2000, 500], [440, 40]])
 	{
 	    if (i == dX_bad_L)
-	    	{iX=shelf_width_L;
+	    	{
+            iX = shelf_width_L;
 	    	iY = shelf_thick;}
 		else
 			{
-			iX=shelf_width_R;
+			iX = shelf_width_R;
 			iY = shelf_thick/2;}
 	
 	    color("red", 1) //lightyellow
