@@ -57,24 +57,49 @@ color("lightsalmon", 1)
 // ===========================================================
 // !!! BLOCK OF WINDOWSILL !!!
 // SIZES
-
+windowsill_length = 1710;
+windowsill_width = 95;
+windowsill_high = 50;
+dX_windowsill = 640;
+dY_windowsill = -45;
+dZ_windowsill = 731;
 // ===========================================================
 // !!! draw windowsill !!!
-
+color("white", 1)
+rotate([0, 0, 0])
+translate([dX_windowsill, dY_windowsill, dZ_windowsill])
+cube([windowsill_length, windowsill_width, windowsill_high]);
 
 // ===========================================================
 // ===========================================================
 // !!! BLOCK OF RADIATOR !!!
 // SIZES
-
+boiler_length = 1500;
+boiler_width = 200;
+boiler_high = 430;
+dX_boiler = 550;
+dY_boiler = 0;
+dZ_boiler = 180;
 // ===========================================================
 // !!! DRAW RADIATOR SET !!!
+color("white", 1)
+{
 // !!! draw radiator !!!
-
+    rotate([0, 0, 0])
+    translate([dX_boiler, dY_boiler, dZ_boiler])
+    cube([boiler_length, boiler_width, boiler_high]);
 // !!! draw vertical tube !!!
-
+    rotate([0, 0, 0])
+    translate([65, 60, 0])
+    cylinder(r=20, h=2500, center=false);
 // !!! draw horizontal tube !!! h = [22, 33]cm
-
+    for(dZ=[220, 330])
+    {
+        translate([65, 60, dZ])
+        rotate([0, 90, 0])
+        cylinder(r=20, h=dX_boiler, center=false);
+    }
+}
 
 // ===========================================================
 // ===========================================================
@@ -99,13 +124,13 @@ module shelf_draw(size, length)
 // sizes of rack 001 (near the window)
 size_001 = shelf_width_S;
 length_001 = 1200;
-shelves_high_001 = [780, 1305, 1630, 1955];
-rack_stand_001 = [2198+50, 1955+50];
+shelves_high_001 = [780, 1440, 1760, 2080];
+rack_stand_001 = [2030+50, 2030+50];
 // sizes of rack 002 (next near the window)
 size_002 = shelf_width_S;
 length_002 = 1200;
-shelves_high_002 = [780, 1123, 1448, 1823, 2198];
-rack_stand_002 = [2198+50, 0];
+shelves_high_002 = [780, 1100, 1440, 1760, 2080];
+rack_stand_002 = [2030+50, 0];
 // sizes of rack 003 (between bads)
 size_003 = shelf_width_L;
 length_003 = 900;
@@ -216,9 +241,14 @@ module bad_door_draw();
 // !!! DRAW BADS!!!
 
 // !!! draw open bad !!!
+color("red", 1)
+rotate([0, 0, 0])
+translate([0, dX_bad_L, 290])
+cube([bad_length, bad_width, bad_high]);
 
 // !!! draw close bad !!!
 translate([0,dX_bad_L,0]) bad_draw();
 translate([0,dX_bad_R,0]) bad_draw();
+
 // !!! doors of bad !!!
 

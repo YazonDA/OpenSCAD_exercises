@@ -194,19 +194,19 @@ for(i=[dX_bad_L, dX_bad_R])
         translate([0, 0, -dZ])
         shelf_draw(shelf_width_L,rack_height);
     }
-/*
+
 // !!! draw open bad !!!
     color("red", 1)
     rotate([0, 0, 0])
     translate([0, i, 290])
     cube([bad_length, bad_width, bad_high]);
-*/
+/*
 // !!! draw close bad !!!
     color("blueviolet", 1)
     translate([bad_high, i, 460])
     rotate([0, -90, 0])
     cube([bad_length, bad_width, bad_high]);
-
+*/
 // !!! doors of bad !!!
 	shelf_thick = 18;
 	dr_width = 830;
