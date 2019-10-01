@@ -54,7 +54,7 @@ module RM_wind_draw(){
 module RM_door_draw(){
     // base for door
     translate([DR_dX, DR_dY, DR_dZ])
-    cub3_l([DR_L, DR_W, DR_H]);}
+    cube([DR_L, DR_W, DR_H]);}
 //====================================================
 // narrow shelf = N; wide shelf = W;
 N = 225; W = 450;
@@ -85,12 +85,12 @@ BS02_di = [RM_W-BS01_W, length_BS01, 0]; // dX, dY, dZ
 BS03_l_L = BD_W; BS03_l_W = W;
 s_BS03_l_H = [];
 r_BS03_l_H = [2550, 2550];
-BS03_l_di = [0, 250, 0]; // dX, dY, dZ
+BS03_l_di = [0, 150, 0]; // dX, dY, dZ
 length_BS03_l = BS03_l_L + (r_BS03_l_H[0] == 0 ? 0 : desk_thick) + (r_BS03_l_H[1] == 0 ? 0 : desk_thick);
 echo(length_BS03_l);
 
 // BS03
-BS03_L = 800; BS03_W = W;
+BS03_L = 900; BS03_W = W;
 s_BS03_H = [558, 878, 1198, 2198];
 r_BS03_H = [0, 0];
 BS03_di = [0, length_BS03_l+BS03_l_di[1], 0]; // dX, dY, dZ
@@ -105,15 +105,15 @@ length_BS03_r = BS03_r_L + (r_BS03_r_H[0] == 0 ? 0 : desk_thick) + (r_BS03_r_H[1
 
 // BS04_l
 BS04_l_L = 1000; BS04_l_W = W;
-s_BS04_l_H = [2080];
-r_BS04_l_H = [2030+50, 2030+50];
+s_BS04_l_H = [1100, 2150];
+r_BS04_l_H = [2150+50, 2150+50];
 BS04_l_di = [-RM_L, 0, 0]; // dX, dY, dZ
 length_BS04_l = BS04_l_L + (r_BS04_l_H[0] == 0 ? 0 : desk_thick) + (r_BS04_l_H[1] == 0 ? 0 : desk_thick);
 
 // BS04
 BS04_L = 800; BS04_W = W;
-s_BS04_H = [780, 1440, 1760, 2080];
-r_BS04_H = [2030+50, 2030+50];
+s_BS04_H = [500, 830, 1160, 1490, 1820, 2150];
+r_BS04_H = [2150+50, 2150+50];
 BS04_di = [-RM_L, length_BS04_l, 0]; // dX, dY, dZ
 
 module BS_draw(BS_W, s_BS_L, s_BS_H, r_BS_H, BS_di, angle)
