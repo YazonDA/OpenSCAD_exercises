@@ -16,13 +16,17 @@
 
 ST_clr = "yellow";
 ST_size = 50;
-ST_W = ST_size;
-ST_H = ST_size;
+ST_W = 20;
+ST_H = 96;
 
 module ST_draw(length){
 	color(ST_clr, 1)
-	cube([length, ST_size, ST_size]);
+	cube([length, ST_W, ST_H]);
 }
+
+//====================================================
+// draw anover stick
+
 
 //====================================================
 // draw one plywood
@@ -42,18 +46,15 @@ module BD_draw(){
 
 // draw frame
 l1 = 2000;
-l2 = 800 - 2 * ST_size;
+l2 = 800 - 2 * ST_W;
 
 ST_draw(l1);
-translate([0, l2 + ST_size, 0])
+translate([0, l2 + ST_W, 0])
 	ST_draw(l1);
-translate([2 * ST_size, ST_size, 0])
+translate([ST_W, ST_W, 0])
 	rotate([0, 0, 90])
 		ST_draw(l2);
-translate([l1/2, ST_size, 0])
-	rotate([0, 0, 90])
-		ST_draw(l2);
-translate([- ST_size + l1, ST_size, 0])
+translate([l1, ST_W, 0])
 	rotate([0, 0, 90])
 		ST_draw(l2);
 
