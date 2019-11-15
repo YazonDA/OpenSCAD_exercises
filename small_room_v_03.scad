@@ -119,7 +119,7 @@ BS02_di = [RM_W-BS01_W, length_BS01, 0]; // dX, dY, dZ
 BS03_l_L = BD_W; BS03_l_W = W;
 s_BS03_l_H = [];
 r_BS03_l_H = [2550, 2550];
-BS03_l_di = [0, 2 50, 0]; // dX, dY, dZ
+BS03_l_di = [0, 250, 0]; // dX, dY, dZ
 length_BS03_l = BS03_l_L + (r_BS03_l_H[0] == 0 ? 0 : desk_thick) + (r_BS03_l_H[1] == 0 ? 0 : desk_thick);
 echo(length_BS03_l);
 
