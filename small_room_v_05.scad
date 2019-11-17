@@ -268,7 +268,7 @@
 	//====================================================
 	// draw transverse side part
 
-		SPt_clr = "brown";
+		SPt_clr = "blue";
 		SPt_W = 50;
 		SPt_H = 50;
 		SPt_L = 800;
@@ -291,6 +291,19 @@
 
 	//====================================================
 	// draw bad
+	/*
+	l2_1 - 365
+	длина ножки от верхней кромки упора для ортопедического основания
+	l2_1 - 715
+	длина уголка от верхней кромки упора для ортопедического основания
+	l2_1 = SPt_L
+	SPt_L = 800
+	ОСЬ вращение:
+		на КРОВАТИ	== 300мм от изголовья
+
+		на СТОЙКЕ	== 350мм от стены
+		ВЫСОТА		== 350мм от пола
+	*/
 
 	// draw 1/2 frame
 	module piece_1_BD_draw(){
@@ -314,10 +327,18 @@
 				SPi_draw(l3);
 
 		// draw transverse details
-			for (i=[0:2]){
+			for (i=[1:2]){
 				translate([SPt_W + SPo_W + i * 400, SPo_W, 5])
 					rotate([0, 0, 90])
 						SPt_draw(l2_1);}
+
+		// draw corner details
+			translate([SPt_W + SPo_W - 50, SPo_W, 85])
+					rotate([0, 90, 0])
+						SPt_draw(l2_1 - 715);
+			translate([SPt_W + SPo_W - 50, SPo_W + 750, 85])
+					rotate([0, 90, 0])
+						SPt_draw(l2_1 - 365);
 
 		// draw 1/2 plywood
 			x = PW_L;
@@ -348,9 +369,11 @@ translate([-300, 0, 0])
 {
 piece_1_BD_draw();
 mattress();
+
 translate([2000 + 2 * SPo_W, 800 + 2 * SPo_W, 0])
 	rotate([0,0,180])
 		piece_1_BD_draw();
+
 }
 /*
 rotate([0, -$t*90, 0])
