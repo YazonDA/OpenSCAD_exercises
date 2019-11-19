@@ -357,25 +357,26 @@
 		module bed_self(){
 			// draw axis
 				color("brown", 1)
-				translate([300,400,-20])
-				rotate([90,0,0])
-				cylinder(r=20, h=1000, center=true);
+					translate([300,400,-20])
+						rotate([90,0,0])
+							cylinder(r=20, h=1000, center=true);
 
 			// draw legs
 				color("brown", 1){
-				translate([SPt_W + SPo_W - 100 + 2000, SPo_W, 0])
-					rotate([0, 90, 0])
-						SPt_draw(SPt_L - 430);
-				translate([SPt_W + SPo_W - 100 + 2000, SPo_W + 750, 0])
-					rotate([0, 90, 0])
-						SPt_draw(SPt_L - 430);}
+					translate([SPt_W + SPo_W - 100 + 2000, SPo_W, 0])
+						rotate([0, 90, 0])
+							SPt_draw(SPt_L - 430);
+					translate([SPt_W + SPo_W - 100 + 2000, SPo_W + 750, 0])
+						rotate([0, 90, 0])
+							SPt_draw(SPt_L - 430);}
 
 			mattress();
-
+			
 			piece_1_BD_draw();
+			
 			translate([2000 + 2 * SPo_W, 800 + 2 * SPo_W, 0])
 				rotate([0,0,180])
-					piece_1_BD_draw();}
+						piece_1_BD_draw();}
 		
 //====================================================
 // TURN ANIMATION
@@ -384,6 +385,6 @@
 		translate([-300, 0, 20])
 			bed_self();
 
-	rotate([0, -$t*90, 0])
-		translate([-300, 1686, 0])
+	rotate([0, -90 + $t*90, 0])
+		translate([-300, 1686, 20])
 			bed_self();
